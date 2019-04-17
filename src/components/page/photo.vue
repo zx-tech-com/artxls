@@ -21,7 +21,7 @@
                 <el-table-column prop="index" label="序号" width="60" align="center"></el-table-column>
                 <!-- <el-table-column type="selection" width="60" align="center"></el-table-column> -->
 				<el-table-column prop="iname" label="艺术家" align="center"></el-table-column>
-				<el-table-column prop="wname" label="艺术类型" align="center"></el-table-column>
+				<el-table-column prop="wname" label="艺术品" align="center"></el-table-column>
 				
                 <el-table-column prop="url" label="图片" align="center">
 					<template slot-scope="scope">
@@ -58,11 +58,14 @@
 				<el-form-item label="艺术家"  prop="iname">
 				    <el-input  value="萧龙士" readonly></el-input>
 				</el-form-item>
+				
+				<el-form-item label="艺术品"  prop="iname">
+				    <el-input  v-model="form.wname"></el-input>
+				</el-form-item>
 								
 				<el-form-item label="原图片">
 				    <img :src="form.imgurl" alt="呀,图片加载不出来" width="200px" height="200px"/>
 				</el-form-item>
-				
 				<el-form-item label="作品照片"  prop="img">
 					<el-upload
 					  class="upload-demo"
@@ -112,7 +115,11 @@
 				</el-form-item>		
 			    <el-form-item label="艺术家"  prop="iname">
 			        <el-input value="萧龙士" readonly></el-input>
-			    </el-form-item>				
+			    </el-form-item>	
+							
+			<el-form-item label="艺术品"  prop="iname">
+			    <el-input  v-model="form.wname"></el-input>
+			</el-form-item>
 				<el-form-item label="作品照片"  prop="img">
 					<el-upload
 					  class="upload-demo"
@@ -255,6 +262,7 @@
 				return {
 					id : vue.form.id,
 					infoId : 1,
+					wname:vue.form.wname,
 					wtype : vue.form.wtype,
 					bginYear : vue.form.bginYear,
 					width : vue.form.width,
@@ -267,6 +275,7 @@
 					infoId : 1,
 					wtype : vue.form.wtype,
 					bginYear : vue.form.bginYear,
+					wname:vue.form.wname,
 					wtype : vue.form.wtype,
 					width : vue.form.width,
 					height : vue.form.height
@@ -329,6 +338,7 @@
                    id : photo.id,
                    mtype : vue.photoTypes.indexOf(photo.mtype),
                    bginYear : photo.bginYear,
+				   wname:photo.wname,
                    width : photo.width,
 				   height : photo.height,
 				   imgurl: photo.url
