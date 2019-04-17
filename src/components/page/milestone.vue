@@ -15,7 +15,7 @@
                 <!-- <el-table-column type="selection" width="55" align="center"></el-table-column> -->
                 <el-table-column prop="iname" label="艺术家" align="center" width="80">
                 </el-table-column>
-				<el-table-column prop="myear" label="创作时间" sortable align="center"  width="120"></el-table-column>
+				<el-table-column prop="myear" label="时间" sortable align="center"  width="120"></el-table-column>
                 <el-table-column prop="introduction" header-align="center" label="描述" ></el-table-column>
 
                 <el-table-column label="操作"  align="center" width="120">
@@ -33,11 +33,11 @@
 				<el-form-item label="艺术家">
 				    <el-input   value="萧龙士" readonly></el-input>
 				</el-form-item>
-				<el-form-item label="创作时间">
+				<el-form-item label="时间">
 					<el-input v-model="form.myear" ></el-input>
 				</el-form-item>
 				
-			    <el-form-item label="作品介绍">
+			    <el-form-item label="描述">
 			        <el-input v-model="form.introduction" type="textarea" :rows="6"></el-input>
 			    </el-form-item>
 			</el-form>
@@ -58,11 +58,11 @@
 				<el-form-item label="艺术家">
 				    <el-input   value="萧龙士" readonly></el-input>
 				</el-form-item>
-				<el-form-item label="创作时间">
+				<el-form-item label="时间">
 					<el-input v-model="form.myear" ></el-input>
 				</el-form-item>
 				
-			    <el-form-item label="作品介绍">
+			    <el-form-item label="描述">
 			        <el-input v-model="form.introduction" type="textarea" :rows="6"></el-input>
 			    </el-form-item>
 			</el-form>
@@ -207,7 +207,7 @@
 						else
 							vue.$message.error("错误码：" + responseData.code + " " + responseData.message);
 						//刷新列表
-						vue.getRawBannerList();
+						vue.geList();
 						//隐藏编辑框
 						vue.editVisible = false;
 					}).catch(function(error){
@@ -230,7 +230,7 @@
 						else
 							vue.$message.error("错误码：" + responseData.code + " " + responseData.message);
 						//刷新列表
-						vue.getRawBannerList();
+						vue.geList();
 						//隐藏编辑框
 						vue.editVisible = false;
 					}).catch(function(error){
@@ -256,7 +256,7 @@
 				if(vue.$util.checkIfResponseSuccess(response)){
 					vue.$message.success(`成功!`);
 					//刷新列表
-					vue.getRawBannerList();
+					vue.geList();
 					//隐藏编辑框
 					vue.editVisible = false;
 					vue.addVisible = false;

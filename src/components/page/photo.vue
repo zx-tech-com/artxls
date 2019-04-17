@@ -233,9 +233,7 @@
 				
 				var finalRules = {//新增,修改都用得到
 					wtype : [{required: true, message: '作品类型必选', trigger: 'blur'}],
-					bginYear: [{required: true, message: '创作年代必填', trigger: 'blur'}],
-					width : [{required: true, message: '作品横宽必填', trigger: 'blur'}],
-					height : [{required: true, message: '作品竖宽必填', trigger: 'blur'}],
+					bginYear: [{required: true, message: '创作年代必填', trigger: 'blur'}]
 				}
 				if(vue.addVisible)//修改是不需要验证图片必须上传的
 					finalRules.img = [{ validator: validateImg}];
@@ -251,6 +249,7 @@
 					   url : vue.$util.getFullAttachmentUrl(photo.url),
 					   iname : '萧龙士',
 					   wname : photo.wname,
+					   wtype : vue.photoTypes[photo.wtype],
 					   bginYear : photo.bginYear,
 					   width : photo.width,
 					   height: photo.height
@@ -259,7 +258,7 @@
             },
 			editData : function(){
 				var vue = this;
-				return {
+				var temp  = {
 					id : vue.form.id,
 					infoId : 1,
 					wname:vue.form.wname,
@@ -268,10 +267,13 @@
 					width : vue.form.width,
 					height : vue.form.height
 				}
+				var params = {};
+				vue.$util.assembleNewParamsWithNoUndefinedNullProperty(params,temp);
+				return params;
 			},
 			addData : function(){
 				var vue = this;
-				return {
+				var temp  = {
 					infoId : 1,
 					wtype : vue.form.wtype,
 					bginYear : vue.form.bginYear,
@@ -280,6 +282,9 @@
 					width : vue.form.width,
 					height : vue.form.height
 				}
+				var params = {};
+				vue.$util.assembleNewParamsWithNoUndefinedNullProperty(params,temp);
+				return params;
 			}
         },
         methods: {
@@ -334,9 +339,10 @@
 				var vue = this;
                 vue.idx = index;
                 const photo = vue.data[index];
+				console.log(photo.wtype);
                 vue.form = {
                    id : photo.id,
-                   mtype : vue.photoTypes.indexOf(photo.mtype),
+                   wtype : vue.photoTypes.indexOf(photo.wtype),
                    bginYear : photo.bginYear,
 				   wname:photo.wname,
                    width : photo.width,
