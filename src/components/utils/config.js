@@ -6,7 +6,7 @@ const ip = '39.98.204.123';
 
 // const ip = 'localhost';
 const port = '80';
-//const port = '9090';
+// const port = '9090';
 const context = "artxls"
 
 const baseUrl = protocol + "://" + ip + ":" + port + "/" + context + "/";

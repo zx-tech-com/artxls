@@ -38,21 +38,7 @@
             return {
                 collapse: false,
                 items: [
-                    {
-                        icon: 'el-icon-lx-home',
-                        index: 'dashboard',
-                        title: '系统首页'
-                    },
-                    {
-						icon: 'el-icon-lx-calendar',
-						index: 'editor',
-						title: '富文本编辑器'
-                    },
-					{
-						icon: 'el-icon-lx-calendar',
-						index: 'info',
-						title: '艺术家介绍'
-					},
+                    
 					{
 						icon: 'el-icon-lx-calendar',
 						index: 'milestone',
@@ -67,27 +53,6 @@
 						icon: 'el-icon-lx-calendar',
 						index: 'news',
 						title: '资讯管理'
-					},
-                    {
-                        icon: 'el-icon-lx-warn',
-                        index: '7',
-                        title: '错误处理',
-                        subs: [
-                            {
-                                index: 'permission',
-                                title: '权限测试'
-                            },
-                            {
-                                index: '404',
-                                title: '404页面'
-                            }
-                        ]
-                    },
-					
-					{
-						icon: 'el-icon-lxdishes',
-						index: 'food',
-						title: '菜品管理'
 					}
                 ]
             }
