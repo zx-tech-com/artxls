@@ -220,7 +220,7 @@
 					   title : news.title,
 					   origin : news.origin,
 					   ntype : vue.newsTypes[news.ntype],
-					   content : vue.content,
+					   content : news.content,
 					   
 				   };
                 })
@@ -313,7 +313,7 @@
 					title : news.title,
 					origin : news.origin,
 					ntype : vue.newsTypes.indexOf(news.ntype),
-					content : vue.content,
+					content : news.content,
                 }
 				vue.fileList = [];
                 vue.editVisible = true;
