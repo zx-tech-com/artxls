@@ -53,6 +53,16 @@
 						index: 'info',
 						title: '艺术家介绍'
 					},
+					{
+						icon: 'el-icon-lx-calendar',
+						index: 'milestone',
+						title: '艺术家生涯'
+					},
+					{
+						icon: 'el-icon-lx-calendar',
+						index: 'photo',
+						title: '作品展'
+					},
                     {
                         icon: 'el-icon-lx-warn',
                         index: '7',

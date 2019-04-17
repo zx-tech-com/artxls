@@ -35,6 +35,17 @@ export default new Router({
 				    component: resolve => require(['../components/page/info.vue'], resolve),
 				    meta: { title: '艺术家介绍' }
 				},
+				{
+				    path: '/milestone',
+				    component: resolve => require(['../components/page/milestone.vue'], resolve),
+				    meta: { title: '艺术家生涯' }
+				},
+				
+				{
+				    path: '/photo',
+				    component: resolve => require(['../components/page/photo.vue'], resolve),
+				    meta: { title: '作品展览' }
+				},
                 {
                     path: '/404',
                     component: resolve => require(['../components/page/404.vue'], resolve),

@@ -16,10 +16,10 @@
     "vue-cropperjs": "^3.0.0",
     "vue-quill-editor": "^3.0.6",
     "vue-router": "^3.0.1",
-		"fastclick": "^1.0.6",
+    "fastclick": "^1.0.6",
     "vue-schart": "^1.0.0",
     "vuedraggable": "^2.17.0",
-		"vue-lazyload": "^1.1.4"
+    "vue-lazyload": "^1.1.4"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.2.0",
