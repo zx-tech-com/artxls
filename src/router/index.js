@@ -36,6 +36,7 @@ export default new Router({
 				    meta: { title: '艺术家介绍' }
 				},
 				{
+
 				    path: '/milestone',
 				    component: resolve => require(['../components/page/milestone.vue'], resolve),
 				    meta: { title: '艺术家生涯' }
@@ -45,6 +46,9 @@ export default new Router({
 				    path: '/photo',
 				    component: resolve => require(['../components/page/photo.vue'], resolve),
 				    meta: { title: '作品展览' }
+				    path: '/news',
+				    component: resolve => require(['../components/page/news.vue'], resolve),
+				    meta: { title: '资讯管理' }
 				},
                 {
                     path: '/404',

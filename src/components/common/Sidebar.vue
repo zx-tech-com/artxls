@@ -62,6 +62,8 @@
 						icon: 'el-icon-lx-calendar',
 						index: 'photo',
 						title: '作品展'
+						index: 'news',
+						title: '资讯管理'
 					},
                     {
                         icon: 'el-icon-lx-warn',
