@@ -53,6 +53,11 @@
 						index: 'info',
 						title: '艺术家介绍'
 					},
+					{
+						icon: 'el-icon-lx-calendar',
+						index: 'news',
+						title: '资讯管理'
+					},
                     {
                         icon: 'el-icon-lx-warn',
                         index: '7',

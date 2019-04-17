@@ -11,7 +11,7 @@
         <el-row>
             <el-col>
                 <el-card shadow="hover">
-                    <div>{{info.introduction}}</div>
+                    <div v-html="info.introduction"></div>
                 </el-card>
             </el-col>
         </el-row>
@@ -41,10 +41,10 @@
 </template>
 
 <script>
-	
 	import 'quill/dist/quill.core.css';
 	import 'quill/dist/quill.snow.css';
 	import 'quill/dist/quill.bubble.css';
+	
 	import { quillEditor } from 'vue-quill-editor';
 	
     export default {
@@ -53,6 +53,7 @@
         data: function() {
             return {
 				getUrl : 'info/get',
+				updateUrl : 'info/update',
 				info : {},
 				editInfo : {},
 				editVisible : false,
@@ -83,11 +84,13 @@
 				})
 			},
 			onEditorChange({ editor, html, text }) {
+				console.log();
 			    this.info.introduction = html;
 			},
 			showDialog : function(){
 				var app = this;
 				app.editInfo = {
+					id : app.info.id,
 					iname : app.info.iname,
 					introduction:app.info.introduction
 				};
@@ -97,7 +100,23 @@
 				this.editVisible = false;
 			},
 			submit : function(){
-				console.log(this.editInfo);
+				var app = this;
+				
+				app.$jsonAxios.post(app.updateUrl,app.$qs.stringify(app.editInfo)).then(function(response){
+					var data = response.data;
+					if(app.$util.checkIfDataSuccess(data)){
+						//刷新列表
+						app.initInfo();
+						app.$message.success("修改成功！");
+					}
+						
+					else
+						app.$message.error("错误码：" + responseData.code + " " + responseData.message);
+					//隐藏编辑框
+					app.editVisible = false;
+				}).catch(function(error){
+					
+				})
 			}
         }
     }

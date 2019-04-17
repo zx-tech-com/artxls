@@ -35,6 +35,11 @@ export default new Router({
 				    component: resolve => require(['../components/page/info.vue'], resolve),
 				    meta: { title: '艺术家介绍' }
 				},
+				{
+				    path: '/news',
+				    component: resolve => require(['../components/page/news.vue'], resolve),
+				    meta: { title: '资讯管理' }
+				},
                 {
                     path: '/404',
                     component: resolve => require(['../components/page/404.vue'], resolve),
