@@ -41,11 +41,12 @@ export default new Router({
 				    component: resolve => require(['../components/page/milestone.vue'], resolve),
 				    meta: { title: '艺术家生涯' }
 				},
-				
 				{
 				    path: '/photo',
 				    component: resolve => require(['../components/page/photo.vue'], resolve),
-				    meta: { title: '作品展览' }
+				    meta: { title: '作品展览' },
+				},
+			    {
 				    path: '/news',
 				    component: resolve => require(['../components/page/news.vue'], resolve),
 				    meta: { title: '资讯管理' }
