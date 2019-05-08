@@ -29,13 +29,12 @@
 					</template>
                 </el-table-column>
 				<el-table-column prop="bginYear" label="作品年代" align="center"></el-table-column>
-				<el-table-column prop="width" label="作品横宽(CM)" align="center"></el-table-column>
 				<el-table-column prop="height" label="作品竖宽(CM)" align="center"></el-table-column>
+				<el-table-column prop="width" label="作品横宽(CM)" align="center"></el-table-column>
 				<el-table-column label="操作"  align="center">
                     <template slot-scope="scope">
-                        <el-button type="text" icon="el-icon-edit" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
-                        <el-button type="text" icon="el-icon-delete" class="red" @click="handleDelete(scope.$index, scope.row)">删除</el-button>
-                        
+						<el-button type="text" icon="el-icon-delete" class="red" @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+                        <el-button type="text" icon="el-icon-edit" @click="handleEdit(scope.$index, scope.row)">编辑</el-button> 
 					</template>
                 </el-table-column>
             </el-table>
@@ -44,8 +43,6 @@
 					layout="prev, pager, next" :total="pageInfo.totalCount"></el-pagination>
 			</div>
         </div>
-
-
 
 		<!-- 编辑弹出框 -->
 		<el-dialog title="修改作品" :visible.sync="editVisible" width="40%">
@@ -89,11 +86,11 @@
 				<el-form-item label="作品年代"  prop="bginYear">
 				    <el-input v-model="form.bginYear"></el-input>
 				</el-form-item>	
-				<el-form-item label="作品横宽"  prop="width">
-				    <el-input v-model="form.width"></el-input>
-				</el-form-item>	
-				<el-form-item label="作品竖宽"  prop="height">
+				<el-form-item label="作品竖宽"  prop="width">
 				    <el-input v-model="form.height"></el-input>
+				</el-form-item>	
+				<el-form-item label="作品横宽"  prop="height">
+				    <el-input v-model="form.width"></el-input>
 				</el-form-item>
 				</el-form-item>
 			</el-form>
@@ -143,11 +140,11 @@
 				<el-form-item label="作品年代"  prop="bginYear">
 				    <el-input v-model="form.bginYear"></el-input>
 				</el-form-item>	
-				<el-form-item label="作品横宽"  prop="width">
-				    <el-input v-model="form.width"></el-input>
-				</el-form-item>	
-				<el-form-item label="作品竖宽"  prop="height">
+				<el-form-item label="作品竖宽"  prop="width">
 				    <el-input v-model="form.height"></el-input>
+				</el-form-item>	
+				<el-form-item label="作品横宽"  prop="height">
+				    <el-input v-model="form.width"></el-input>
 				</el-form-item>	
 			</el-form>
             <span slot="footer" class="dialog-footer">
@@ -232,8 +229,8 @@
 				};
 				
 				var finalRules = {//新增,修改都用得到
-					wtype : [{required: true, message: '作品类型必选', trigger: 'blur'}],
-					bginYear: [{required: true, message: '创作年代必填', trigger: 'blur'}]
+					wtype : [{required: true, message: '作品类型必选', trigger: 'blur'}]
+					//bginYear: [{required: true, message: '创作年代必填', trigger: 'blur'}]
 				}
 				if(vue.addVisible)//修改是不需要验证图片必须上传的
 					finalRules.img = [{ validator: validateImg}];

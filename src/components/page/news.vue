@@ -159,6 +159,7 @@
 				addUrl : 'news/add',
 				editUrl : 'news/update',
 				delUrl : 'news/delete',
+				detailUrl: 'news/detail',
 				
 				newsTypes : ['评论','动态','观点','视频'],
 				
@@ -302,24 +303,43 @@
             handleEdit(index, row) {
 				var vue = this;
                 vue.idx = index;
-                const news = vue.data[index];
-                vue.form = {
-					id : news.id,
-					infoId : news.infoId,
-					createTime : news.createTime,
-					publishTime : news.publishTime,
-					author : news.author,
-					summary : news.summary,
-					title : news.title,
-					origin : news.origin,
-					ntype : vue.newsTypes.indexOf(news.ntype),
-					content : news.content,
-                }
-				vue.fileList = [];
-                vue.editVisible = true;
-				vue.$nextTick(function(){//注意需要在visible为true之后调用 emmmmm
-					vue.$refs.editform.clearValidate();
+				var finalUrl =vue.detailUrl+"?newsID="+row.id;
+//				console.log(finalUrl);
+//				const news = vue.data[index];			
+				vue.$jsonAxios.get(finalUrl).then(function(response){
+					//这里只能说明返回的状态码是以2开头的.
+					var data  = response.data;
+					if(data.code == vue.$util.success_code){//成功返回列表
+						var news = data.data;
+						vue.form = {
+							id : news.id,
+							infoId : news.infoId,
+							createTime : news.createTime,
+							publishTime : news.publishTime,
+							author : news.author,
+							summary : news.summary,
+							title : news.title,
+							origin : news.origin,
+							ntype : news.ntype,
+							content : news.content,
+						}
+						vue.fileList = [];
+						vue.editVisible = true;
+						vue.$nextTick(function(){//注意需要在visible为true之后调用 emmmmm
+							vue.$refs.editform.clearValidate();
+						})
+					}else
+						vue.$message.error("错误码：" + data.code + " " + data.message);
+				}).catch(function(err){
+					//console.log(err);
+					vue.$util.axiosErrorHandler(err,vue);
 				})
+				
+				
+				
+				
+				
+               
             },
 			
 			handleDelete(index,row){
